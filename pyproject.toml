@@ -1,0 +1,259 @@
+[project]
+name = "untitled-python-project-1"
+version = "0.1.0"
+keywords = ["python", "fastapi"]
+description = "Untitled Python Project 1"
+readme = "README.md"
+authors = [
+    { name = "Kamil Kochanczyk", email = "kochanczykkamil05@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.162.0",
+    "pydantic>=2.14.3",
+    "pydantic-settings>=2.16.2",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = ""
+Documentation = ""
+Repository = ""
+Issues = ""
+Changelog = ""
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+# make sure UV looks for "untitled_python_project_1" subdir even when the name of the project is different
+module-name = "untitled_python_project_1"
+
+[dependency-groups]
+dev = [
+    "detect-secrets>=1.5.0",
+    "mypy>=2.4.1",
+    "nox-uv>=0.8.0",
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.4",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+extend-select = [
+    "E",    # Pycodestyle errors (style issues)
+    "W",    # Pycodestyle warnings (style issues)
+    "C90",  # McCabe – complexity metric for functions
+    "I",    # isort – import ordering checks
+    "N",    # PEP8 Naming – naming conventions
+    "D",    # Pydocstyle – docstring formatting
+    "UP",   # Pyupgrade – upgrades syntax to newer Python versions
+    "YTT",  # Flake8-2020 – checks for misuse of sys.version and sys.version_info
+    # "ANN",  # Flake8-annotations – enforces type annotation style
+    "ASYNC",# Flake8-async – checks async/await usage
+    "S",    # Flake8-bandit – security issues
+    "BLE",  # Flake8-blind-except – flags bare excepts
+    "FBT",  # Flake8-boolean-trap – potential pitfalls with booleans
+    "B",    # Flake8-bugbear – common bug patterns
+    "A",    # Flake8-builtins – misuse of Python built-in names
+    "COM",  # Flake8-commas – trailing/comma issues
+    # "CPY",  # Flake8-copyright – copyright header checks
+    "C4",   # Flake8-comprehensions – best practices in comprehensions
+    "DTZ",  # Flake8-datetimez – requires timezone-aware datetime objects
+    "T10",  # Flake8-debugger – debugger statements (e.g. pdb)
+    "DJ",   # Flake8-django – Django-specific conventions
+    "EM",   # Flake8-errmsg – error message style
+    "EXE",  # Flake8-executable – executable file checks
+    "FA",   # Flake8-future-annotations – future import for annotations
+    "ISC",  # Flake8-implicit-str-concat – warns on implicit string concatenation
+    "ICN",  # Flake8-import-conventions – enforces conventional import aliases
+    "LOG",  # Flake8-logging – proper logging usage
+    "G",    # Flake8-logging-format – logging format string issues
+    "INP",  # Flake8-no-pep420 – requires __init__.py files (no implicit namespace packages)
+    "PIE",  # Flake8-pie – Python improvement suggestions
+    # "T20",  # Flake8-print – disallows print statements
+    "PYI",  # Flake8-pyi – checks for type stub (.pyi) consistency
+    "PT",   # Flake8-pytest-style – pytest best practices
+    "Q",    # Flake8-quotes – enforces quote style consistency
+    "RSE",  # Flake8-raise – proper raise statement usage
+    "RET",  # Flake8-return – return statement issues
+    "SLF",  # Flake8-self – flags instance methods that don't use self
+    "SLOT", # Flake8-slots – suggests use of __slots__ where appropriate
+    "SIM",  # Flake8-simplify – code simplification hints
+    "TID",  # Flake8-tidy-imports – enforces specific import styles (e.g., no relative imports)
+    "TC",   # Flake8-type-checking – proper import of typing in type checks
+    "INT",  # Flake8-gettext – checks for proper internationalization usage
+    "ARG",  # Flake8-unused-arguments – flags unused function arguments
+    "PTH",  # Flake8-use-pathlib – encourages pathlib over os.path
+    "TD",   # Flake8-todos – flags TODO comments
+    "FIX",  # Flake8-fixme – flags FIXME comments
+    # "ERA",  # Eradicate – detects commented-out code (potentially dangerous)
+    "PD",   # Pandas-vet – checks pandas-specific code practices
+    "PGH",  # Pygrep-hooks – custom grep hooks for linting
+    "PL",   # Pylint – integration with Pylint conventions
+    "TRY",  # Tryceratops – try/except usage suggestions
+    "FLY",  # Flynt – f-string conversion suggestions
+    "NPY",  # NumPy-specific rules – ensures NumPy coding standards
+    "FAST", # FastAPI – FastAPI-specific linting rules
+    "AIR",  # Airflow – Airflow-specific linting rules
+    "PERF", # Perflint – performance-related checks
+    "FURB", # Refurb – rules for code refurbishment
+    # "DOC",  # Pydoclint – docstring linting and consistency
+    "RUF",  # Ruff-specific rules – additional Ruff checks
+]
+ignore = [
+    "INP001",  # Flake8-no-pep420 (package __init__ missing)
+    "E501",  # Pycodestyle - line too long
+    "D1",    # Pydocstyle - missing docstring in public module, class, or function
+    "FBT003", # Flake8-boolean-trap - boolean position value in function call
+    "D203",  # Pydocstyle - one blank line required before class docstring
+    "D212",  # Pydocstyle - summary line should be immediately after the opening quotes.
+    "D213",  # Pydocstyle - summary line should be positioned on the seconds physical line of the docstring.
+    "D400",  # Pydocstyle - First line should end with a period.
+    "D401",  # Pydocstyle - Checks for docstring first lines that are not in an imperative mood.
+    "D415",  # Pydocstyle - First line should end with a period, question mark, or exclamation point
+    "S311",  # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
+    "PERF401", # Perflint - Checks for for loops that can be replaced by a list comprehension.
+    "RET504", # Flake8-return - Checks for variable assignments that immediately precede a return of the assigned variable.
+    "FA102", # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
+    "TRY003", # Tryceratops - Checks for long exception messages that are not defined in the exception class itself.
+    "EM101", # Flake8-errmsg - Checks for the use of string literals in exception constructors.
+    "TC002", # Flake8-type-checking - Checks for usage of typing imports outside of TYPE_CHECKING blocks.
+    "TC003", # Flake8-type-checking - Checks for imports from typing that are not within TYPE_CHECKING blocks.
+    "COM812", # Flake8-commas - Missing trailing comma. Conflicts with the formatter, which manages trailing commas itself (magic trailing comma is unaffected); Ruff recommends disabling.
+    "ISC001", # Flake8-implicit-str-concat - Single-line implicit string concatenation. Conflicts with the formatter; Ruff recommends disabling alongside COM812.
+]
+
+[tool.ruff.lint.per-file-ignores]
+# IGNORE RULES FOR TESTS
+# S101    # Flake8-bandit – asserts are standard in pytest
+# S105    # Flake8-bandit – possible hardcoded password
+# S106    # Flake8-bandit – possible hardcoded password in function argument
+# S107    # Flake8-bandit – hardcoded passwords in function defaults (test helpers need defaults)
+# PLR2004 # Pylint – magic values (e.g. 404, 200) are common in tests
+# SLF001  # Flake8-self – private member access needed to test internal state
+# D       # Pydocstyle – docstrings are often redundant in verbose test names
+# ANN     # Flake8-annotations – type annotations are unnecessary overhead for tests
+# ARG001  # Flake8-unused-arguments – pytest fixtures ensure state exists even when not directly used
+# PLC0415 # Pylint – local imports in tests are valid for test isolation and self-contained tests
+# EM102   # Flake8-errmsg – f-string exceptions in test helpers are acceptable for debugging
+# INP001  # Flake8-no-pep420 – a tests/ dir intentionally has no __init__.py (standard pytest layout)
+"test_*.py" = ["S101", "S105", "S106", "S107", "PLR2004", "SLF001", "D", "ANN", "ARG001", "PLC0415", "EM102", "INP001"]
+"*_test.py" = ["S101", "S105", "S106", "S107", "PLR2004", "SLF001", "D", "ANN", "ARG001", "PLC0415", "EM102", "INP001"]
+"conftest.py" = ["S101", "S105", "S106", "S107", "PLR2004", "SLF001", "D", "ANN", "ARG001", "PLC0415", "EM102", "INP001"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+exclude = ["test", "tests"]
+# enable_error_code = ["ignore-without-code"]
+
+[tool.pytest]
+# register custom marks to prevent warnings
+# everything after ":" is an optional description of the marker
+markers = [
+    "unit: marks the simple unit test",
+    "integration: marks the integration test", 
+    "e2e: marks the e2e test"
+]
+
+[tool.coverage.run]
+source = ["src/untitled_python_project_1"]
+relative_files = true
+omit = ["*/__init__.py"]
+
+[tool.coverage.report]
+fail_under = 80
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.poe.tasks]
+sync-all = "uv sync --all-groups --all-extras"
+lock-upgrade = "uv lock --upgrade"
+fix-diff = "ruff check . --fix --diff"
+format-diff = "ruff format . --diff"
+cov-erase = "uv run coverage erase"
+pytest-cov-doctest = "pytest --cov --cov-report=html --cov-branch --doctest-modules"
+
+[tool.poe.tasks.typecheck]
+cmd = "mypy ${path}"
+args = [
+    { name="path", options=["--path", "-p"], default="." }
+]
+
+[tool.poe.tasks.test]
+help = "Run tests using pytest with fresh coverage report, also run doctests"
+sequence = ["cov-erase", "pytest-cov-doctest"]
+
+[tool.poe.tasks.clean]
+help = "Clean generated cache files and other unnecesarry artifacts"
+shell = """
+rm -rf .pytest_cache
+rm -rf .ruff_cache
+rm -rf .mypy_cache
+rm -rf build dist *.egg-info
+find . -type d -name "__pycache__" -exec rm -rf {} +
+"""
+
+[tool.poe.tasks.update]
+help = "Update lock file and then update all dependency groups"
+sequence = ["lock-upgrade", "sync-all"]
+
+[tool.poe.tasks.reviewcode]
+help = "Preview ruff's lint-fix and format, then check mypy errors [fix-diff -> format-diff -> typecheck]"
+sequence = ["fix-diff", "format-diff", "typecheck"]
+ignore_fail = true
+
+[tool.poe.tasks.dodoctest]
+help = "Perform doctests on a specific Python script, script must be specified via its path"
+cmd = "uv run python -m doctest -v"
+
+[tool.poe.tasks.nox-erase]
+help = "Remove the generated .nox directory"
+shell = """
+rm -rf .nox
+"""
+
+[tool.poe.tasks.htmlcov-erase]
+help = "Remove the generated htmlcov directory"
+shell = """
+rm -rf htmlcov
+"""
+
+[tool.poe.tasks.clean-all]
+help = "More aggressive version of the normal clean task, it additionally removes .nox and htmlcov directories"
+sequence = ["clean", "nox-erase", "htmlcov-erase"]
+ignore_fail = true

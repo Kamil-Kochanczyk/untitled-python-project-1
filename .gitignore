@@ -1,0 +1,33 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+.nox/
+
+# Environment variables
+**/.env
+
+# Secrets
+**/secret*
+!secrets.baseline
+
+# Logs
+**/*.log
+
+# Coverage
+.coverage*
+htmlcov/
+
+# Tool caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Other
+**/*tmp*
