@@ -54,9 +54,9 @@ networks:
 
 secrets:
   postgres-password:
-    file: ./secrets/secret_postgres_pswd.txt
+    file: ./secrets/secret_postgres_pswd
   pgadmin-password:
-    file: ./secrets/secret_pgadmin_pswd.txt
+    file: ./secrets/secret_pgadmin_pswd
 
 volumes:
   pgdata-untitled-python-project-1:

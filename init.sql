@@ -1,4 +1,4 @@
--- 0. Create the user (choose some password but later clean it to not commit it)
+-- 0. Create the user (choose some secret password but later clean it to not commit it)
 CREATE USER fastapiuser WITH PASSWORD '';
 
 -- 1. Grant connection to the database

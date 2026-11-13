@@ -9,3 +9,8 @@ class UserNotFoundError(Exception):
 class UsernameAlreadyExistsError(Exception):
     def __init__(self, username: str):
         self.username = username
+
+
+class EmailAlreadyExistsError(Exception):
+    def __init__(self, email: str):
+        self.email = email
